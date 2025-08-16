@@ -1,0 +1,163 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>快速跳转</title>
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --brand: #38bdf8;
+      --brand-press: #0ea5e9;
+      --divider: rgba(148, 163, 184, .2);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --brand: #0284c7;
+        --brand-press: #0369a1;
+        --divider: rgba(2, 8, 23, .08);
+      }
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--bg), color-mix(in oklab, var(--bg), #000 6%));
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", Arial, "Microsoft Yahei", sans-serif;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklab, var(--card), transparent 10%);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--divider);
+    }
+    .inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 14px 16px;
+    }
+    .title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 18px; font-weight: 700; letter-spacing: .2px;
+    }
+    .title svg { flex: 0 0 22px; }
+
+    main { padding: 16px; }
+    .container { max-width: 640px; margin: 0 auto; }
+    .hint { color: var(--muted); font-size: 13px; margin: 6px 2px 12px; }
+
+    .list { display: grid; gap: 12px; }
+    .item {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      text-decoration: none;
+      background: var(--card);
+      border: 1px solid var(--divider);
+      padding: 14px 14px;
+      border-radius: 16px;
+      transition: transform .08s ease, border-color .08s ease;
+      touch-action: manipulation;
+    }
+    .item:active { transform: scale(.99); border-color: var(--brand-press); }
+    .item:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+    .item .text { display: grid; gap: 4px; }
+    .item .title { font-size: 16px; font-weight: 700; color: var(--text); }
+    .item .desc { font-size: 13px; color: var(--muted); }
+    .chev { flex: 0 0 22px; opacity: .6; }
+
+    footer { color: var(--muted); font-size: 12px; padding: 12px 16px; text-align: center; }
+
+    /* Larger tap targets on very small screens */
+    @media (max-width: 360px) { .item { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <div class="title" aria-label="快速跳转">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 3v4m0 10v4M3 12h4m10 0h4M5.636 5.636l2.829 2.829m7.071 7.071 2.828 2.828m0-12.728-2.828 2.829m-7.07 7.07-2.829 2.829" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        快速跳转
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="hint">点击即可跳转，浏览器会保留回退历史。</div>
+      <nav class="list" aria-label="跳转列表">
+        <!-- TODO: 将下面的 href 替换为你真实的目标链接；留空或使用 # 以便占位。为了保留回退历史，不要使用 target="_blank"。-->
+
+        <a class="item" href="../gallery/gonor.html" rel="noopener" aria-label="可访问资源示例">
+          <div class="text">
+            <div class="title">1. 可访问资源示例</div>
+            <div class="desc">示例资源内容</div>
+          </div>
+          <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="item" href="../Android/Android.html" rel="noopener" aria-label="安卓手机安装配置教程">
+          <div class="text">
+            <div class="title">2. 安卓手机安装配置教程</div>
+            <div class="desc">Android 安装与配置图文步骤</div>
+          </div>
+          <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="item" href="../WIN/WIN.html" rel="noopener" aria-label="Windows电脑安装配置教程">
+          <div class="text">
+            <div class="title">3. Windows 电脑安装配置教程</div>
+            <div class="desc">Win10/11 安装与配置图文步骤</div>
+          </div>
+          <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="item" href="../IOS/IOS.html" rel="noopener" aria-label="苹果 iOS / iPhone / iPad 安装配置教程">
+          <div class="text">
+            <div class="title">4. 苹果 iOS / iPhone / iPad 安装配置教程</div>
+            <div class="desc">iOS/iPadOS 安装与配置图文步骤</div>
+          </div>
+          <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    ? <span id="y"></span> 快速跳转
+  </footer>
+
+  <script>
+    // 显示年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 可选：轻量点击反馈（移动端）
+    document.querySelectorAll('.item').forEach(a => {
+      a.addEventListener('touchstart', () => a.classList.add('active'), {passive:true});
+      a.addEventListener('touchend',   () => a.classList.remove('active'));
+      a.addEventListener('touchcancel',() => a.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
+
